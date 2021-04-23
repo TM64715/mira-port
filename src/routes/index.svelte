@@ -38,8 +38,11 @@ const formatDate = (date) => {
 }
 console.log(articles);
 </script>
+<svelte:head>
+    <title>Mira Mehta</title>
+    <meta name="description" content="My name is Mira Mehta, and I’m a senior at Westfield High School.  I believe that honest information and genuine communication will help us build a better future.  I hope to contribute to both through my writing, and below is a sampling.  I hope you enjoy it.">
+</svelte:head>
 <Layout>
-    
     <span class="flex w-11/12 justify-between mt-10 mx-auto">
         <div class="border-1t rounded-full w-12 h-12 flex justify-center items-center ring ring-blue-600">
             M

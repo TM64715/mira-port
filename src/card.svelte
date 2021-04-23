@@ -8,7 +8,7 @@
 <div class="border-1t pt-3 pb-5 w-full ">
     <div class="flex flex-col mx-4 px-3 space-y-5">
         <span class="grid grid-cols-5 pt-4 w-full">
-            <p class="text-blue-600 col-span-3 text-base font-semibold">{title}</p>
+            <p class="text-blue-600 text-opacity-75 col-span-3 text-base font-semibold hover:underline"><a href={link}>{title}</a></p>
             <p class="text-black opacity-80 col-start-4 w-full col-span-2 text-right">{date}</p>
         </span>
         <p class="line-clamp-3">{blurb}</p>
