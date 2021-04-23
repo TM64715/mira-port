@@ -48,17 +48,17 @@ console.log(articles);
             <a href="mailto:itsmiramehta@gmail.com" target="blank">Contact Me</a>
         </button>
     </span>
-    <div class="space-y-14 flex flex-col mt-10 w-7/12 mx-auto mb-10">
+    <div class="space-y-5 md:space-y-14 flex flex-col mt-10 w-10/12 md:w-7/12 mx-auto mb-10">
         
-        <h1 class="text-center text-2xl font-semibold">Hi I’m Mira Mehta.  Journalist, Activist, Student</h1>
+        <h1 class="text-center text-2xl font-semibold">Hi I’m Mira Mehta,  Journalist, Activist, Student</h1>
         <p>My name is Mira Mehta, and I’m a senior at Westfield High School.  I believe that honest information and genuine communication will help us build a better future.  I hope to contribute to both through my writing, and below is a sampling.  I hope you enjoy it.</p>
-        <p class="text-center">Here’s some of my published work</p>
+        <p class="text-center font-medium">Here’s some of my published work</p>
     </div>
     {#if error != null}
         {error}
     {:else}
     <div class="flex flex-col w-11/12 mx-auto space-y-4">
-        <div class="grid grid-cols-2 gap-10 auto-rows-auto">
+        <div class="md:grid md:grid-cols-2 gap-10 auto-rows-auto space-y-4 md:space-y-0">
             {#each articles as article, i}
                 <Card title={article.Title} date={formatDate(article.Published)} link={article.Link} blurb={article.Blurb}/>
             {/each}

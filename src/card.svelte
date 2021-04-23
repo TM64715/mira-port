@@ -12,8 +12,8 @@
             <p class="text-black opacity-80 col-start-4 w-full col-span-2 text-right">{date}</p>
         </span>
         <p class="line-clamp-3">{blurb}</p>
-        <span class="px-4 py-2 inline-flex self-end text-sm font-semibold rounded-full bg-blue-400 bg-opacity-50 text-black">
-            <a href="{link}">Read More!</a>
+        <span class="px-4 py-2 inline-flex self-end text-sm font-semibold rounded-full bg-blue-100 ">
+            <a href="{link}" class="text-blue-800">Read More!</a>
         </span>
     </div>
 </div>
