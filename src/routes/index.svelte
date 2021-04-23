@@ -8,7 +8,7 @@ let  articles = []
 let error = null;
 onMount(async () => {
     try {
-        const res = await axios.get('http://localhost:1337/articles?_sort=Published:desc');
+        const res = await axios.get('https://boiling-fortress-16746.herokuapp.com/articles?_sort=Published:desc');
         articles = res.data;
     } catch (e) {
         error = e;
@@ -29,16 +29,27 @@ const months = {
   11: 'December'
 }
 const formatDate = (date) => {
+    date = new Date(date);
     const year = date.getFullYear();
     const day = date.getDate();
     const monthIndex = date.getMonth();
     const monthName = months[monthIndex];
-    return `${month} ${day}, ${year}`;
+    return `${monthName} ${day}, ${year}`;
 }
 console.log(articles);
 </script>
 <Layout>
-    <div class="space-y-14 flex flex-col mt-20 w-7/12 mx-auto mb-10">
+    
+    <span class="flex w-11/12 justify-between mt-10 mx-auto">
+        <div class="border-1t rounded-full w-12 h-12 flex justify-center items-center ring ring-blue-600">
+            M
+        </div>
+        <button class="focus:outline-none bg-gray-300 text-sm rounded-lg font-medium px-5 focus:ring-2 ring-black bg-opacity-40">
+            <a href="mailto:itsmiramehta@gmail.com" target="blank">Contact Me</a>
+        </button>
+    </span>
+    <div class="space-y-14 flex flex-col mt-10 w-7/12 mx-auto mb-10">
+        
         <h1 class="text-center text-2xl font-semibold">Hi I’m Mira Mehta.  Journalist, Activist, Student</h1>
         <p>My name is Mira Mehta, and I’m a senior at Westfield High School.  I believe that honest information and genuine communication will help us build a better future.  I hope to contribute to both through my writing, and below is a sampling.  I hope you enjoy it.</p>
         <p class="text-center">Here’s some of my published work</p>
@@ -46,10 +57,12 @@ console.log(articles);
     {#if error != null}
         {error}
     {:else}
-    <div class="flex w-11/12 mx-auto justify-around">
-        {#each articles as article}
-            <Card title={article.Title} date={article.Published} link={article.Link} blurb={article.Blurb}/>
-        {/each}
+    <div class="flex flex-col w-11/12 mx-auto space-y-4">
+        <div class="grid grid-cols-2 gap-10 auto-rows-auto">
+            {#each articles as article, i}
+                <Card title={article.Title} date={formatDate(article.Published)} link={article.Link} blurb={article.Blurb}/>
+            {/each}
+        </div>
     </div>
     {/if}
 </Layout>

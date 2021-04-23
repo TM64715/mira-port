@@ -5,11 +5,11 @@
     export let blurb = "As the beginning of the decade reveals itself to be an accumulation of 1920s tragedies rather than a time replete with the splendor of Gatsby-esque parties, Americans have not only united to support thei…";
 </script>
 
-<div class="border-1t w-5/12 pt-3 pb-5">
-    <div class="flex flex-col mx-2 px-3 space-y-5">
-        <span class="flex justify-between pt-4">
-            <p class="text-blue-600 text-base font-semibold">{title}</p>
-            <p class="text-black opacity-80">{date}</p>
+<div class="border-1t pt-3 pb-5 w-full ">
+    <div class="flex flex-col mx-4 px-3 space-y-5">
+        <span class="grid grid-cols-5 pt-4 w-full">
+            <p class="text-blue-600 col-span-3 text-base font-semibold">{title}</p>
+            <p class="text-black opacity-80 col-start-4 w-full col-span-2 text-right">{date}</p>
         </span>
         <p class="line-clamp-3">{blurb}</p>
         <span class="px-4 py-2 inline-flex self-end text-sm font-semibold rounded-full bg-blue-400 bg-opacity-50 text-black">
