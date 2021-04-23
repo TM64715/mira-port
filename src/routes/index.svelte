@@ -2,6 +2,7 @@
 import Layout from "../layout.svelte";
 import Card from '../card.svelte';
 const cms = "http://localhost:1337/"
+import { base, assets } from '$app/paths';
 import axios from 'axios';
 import { onMount } from "svelte";
 let  articles = []
