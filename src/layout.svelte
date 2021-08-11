@@ -1,6 +1,5 @@
 <script>
-import Card from "./card.svelte";
-
+export let color;
 </script>
 <svelte:head>
     <style>
@@ -14,6 +13,6 @@ import Card from "./card.svelte";
         }
     </style>
 </svelte:head>
-<div class="w-full">
+<div class={"w-full " + color}>
     <slot></slot>
 </div>

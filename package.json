@@ -1,5 +1,5 @@
 {
-  "name": "~TODO~",
+  "name": "mira-mehta",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -32,6 +32,7 @@
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.2.0",
     "axios": "^0.21.1",
+    "svelte-loading-spinners": "^0.1.7",
     "svelte-typed-js": "^1.0.3"
   }
 }

@@ -1,10 +1,9 @@
 <script>
 import Layout from "../layout.svelte";
 import Card from '../card.svelte';
-const cms = "http://localhost:1337/"
-import { base, assets } from '$app/paths';
 import axios from 'axios';
 import { onMount } from "svelte";
+import { Stretch } from 'svelte-loading-spinners';
 let  articles = []
 let error = null;
 onMount(async () => {
@@ -13,7 +12,7 @@ onMount(async () => {
         articles = res.data;
     } catch (e) {
         error = e;
-    }
+    }c
 })
 const months = {
   0: 'January',
@@ -37,13 +36,13 @@ const formatDate = (date) => {
     const monthName = months[monthIndex];
     return `${monthName} ${day}, ${year}`;
 }
-console.log(articles);
+
 </script>
 <svelte:head>
     <title>Mira Mehta</title>
     <meta name="description" content="My name is Mira Mehta, and I’m a senior at Westfield High School.  I believe that honest information and genuine communication will help us build a better future.  I hope to contribute to both through my writing, and below is a sampling.  I hope you enjoy it.">
 </svelte:head>
-<Layout>
+<Layout color="dark:bg-gray-900">
     <span class="flex w-11/12 justify-between mt-10 mx-auto">
         <div class="border-1t rounded-full w-12 h-12 flex justify-center items-center ring ring-blue-600">
             M
@@ -59,14 +58,20 @@ console.log(articles);
         <p class="text-center font-medium">Here’s some of my published work</p>
     </div>
     {#if error != null}
-        {error}
-    {:else}
+        {"Whoops! An error occurred"}
+    {:else} 
+      {#if articles.length == 0}
+      <div class="w-full flex justify-center">
+        <Stretch color="#2563EB"/>
+      </div>
+        {:else}
     <div class="flex flex-col w-11/12 mx-auto space-y-4">
         <div class="md:grid md:grid-cols-2 gap-10 auto-rows-auto space-y-4 md:space-y-0">
-            {#each articles as article, i}
+            {#each articles as article}
                 <Card title={article.Title} date={formatDate(article.Published)} link={article.Link} blurb={article.Blurb}/>
             {/each}
         </div>
     </div>
     {/if}
-</Layout>
+    {/if}
+    </Layout>
